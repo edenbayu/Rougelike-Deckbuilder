@@ -1,14 +1,16 @@
-class_name Deck
+class_name Hands
 extends HBoxContainer
 
+ 
 
 func _spawn_card(card: Card)->void:
 	pass
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
-
+	var scene = preload("res://Scenes/DeckBuilder/Card.tscn")
+	var card = scene.instantiate()
+	self.add_child(card)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
