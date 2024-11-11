@@ -1,0 +1,32 @@
+{
+	"cards" : [
+		{
+			"id" : 1,
+			"type" : "UTILITY",
+			"ability" : "HEAL",
+			"name" : "sandwich",
+			"texture" : ""
+		},
+		{
+			"id" : 2,
+			"type" : "UTILITY",
+			"ability" : "HEAL",
+			"name" : "potion",
+			"texture" : ""
+		},
+		{
+			"id" : 3,
+			"type" : "UTILITY",
+			"ability" : "ATTACK",
+			"name" : "sandwich",
+			"texture" : ""
+		},
+		{
+			"id" : 4,
+			"type" : "UTILITY",
+			"ability" : "ATTACK",
+			"name" : "sandwich",
+			"texture" : ""
+		}
+	]
+}
