@@ -1,0 +1,37 @@
+[gd_scene load_steps=5 format=3 uid="uid://dq8yi1401wlf1"]
+
+[ext_resource type="Texture2D" uid="uid://14vvqgsfw0ox" path="res://Assets/UI_Elements/buy_button.png" id="1_cj5qm"]
+[ext_resource type="FontFile" uid="uid://bp8k0t32rtbfy" path="res://Assets/Fonts/I-pixel-u.ttf" id="2_1ipug"]
+[ext_resource type="Script" path="res://Scenes/DeckBuilder/BuyButton.gd" id="2_n4833"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_scofs"]
+texture = ExtResource("1_cj5qm")
+
+[node name="BuyButton" type="Button"]
+custom_minimum_size = Vector2(190, 66)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -1730.0
+offset_bottom = -1014.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/normal = SubResource("StyleBoxTexture_scofs")
+script = ExtResource("2_n4833")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.179
+anchor_top = 0.121
+anchor_right = 0.795
+anchor_bottom = 0.614
+offset_left = -0.0100021
+offset_top = 5.014
+offset_right = -0.0500031
+offset_bottom = 37.476
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("2_1ipug")
+theme_override_font_sizes/font_size = 26
+text = "500"

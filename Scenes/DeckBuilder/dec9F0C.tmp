@@ -9,11 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://q224tuuc6lrr" path="res://Assets/UI_Elements/deck.png" id="6_i1sy5"]
 [ext_resource type="Shader" path="res://Assets/Shaders/outline.gdshader" id="6_ueell"]
 [ext_resource type="Script" path="res://Scripts/DeckButtonTexture.gd" id="7_cl8wm"]
-[ext_resource type="Script" path="res://Scenes/DeckBuilder/ShopCard.gd" id="10_clvct"]
+[ext_resource type="PackedScene" uid="uid://b507uilqemkkr" path="res://Scenes/DeckBuilder/DisplayCard.tscn" id="10_kyfl3"]
 [ext_resource type="FontFile" uid="uid://bp8k0t32rtbfy" path="res://Assets/Fonts/I-pixel-u.ttf" id="11_d8n7i"]
-[ext_resource type="Texture2D" uid="uid://dkshg6c1ua5c7" path="res://Assets/UI_Elements/Inventory.png" id="12_d4q3d"]
-[ext_resource type="PackedScene" uid="uid://c2gkgubf6jijx" path="res://Scenes/DeckBuilder/Slot.tscn" id="13_wockh"]
-[ext_resource type="Script" path="res://Scenes/DeckBuilder/inventory.gd" id="14_oet43"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cp0gu"]
 
@@ -35,13 +32,50 @@ shader_parameter/inside = false
 shader_parameter/add_margins = true
 shader_parameter/number_of_images = Vector2(1, 1)
 
+[sub_resource type="Animation" id="Animation_o1433"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(100, 50)]
+}
+
+[sub_resource type="Animation" id="Animation_p5kec"]
+resource_name = "TransIn"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Panel:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.96667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(100, 1080), Vector2(100, 50)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_v1olt"]
+_data = {
+"RESET": SubResource("Animation_o1433"),
+"TransIn": SubResource("Animation_p5kec")
+}
+
 [node name="DeckBuilding" type="Node2D"]
 script = ExtResource("1_ukknt")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 follow_viewport_enabled = true
 
-[node name="Shop" type="Control" parent="CanvasLayer"]
+[node name="Menu" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -50,10 +84,9 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-script = ExtResource("10_clvct")
 metadata/_edit_use_anchors_ = true
 
-[node name="Background" type="TextureRect" parent="CanvasLayer/Shop"]
+[node name="Background" type="TextureRect" parent="CanvasLayer/Menu"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -63,7 +96,7 @@ grow_vertical = 2
 texture = ExtResource("1_i5xo5")
 expand_mode = 2
 
-[node name="DeckContainer" type="TextureRect" parent="CanvasLayer/Shop"]
+[node name="DeckContainer" type="TextureRect" parent="CanvasLayer/Menu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.0
@@ -71,7 +104,7 @@ anchor_bottom = 1.0
 offset_right = -1444.0
 texture = ExtResource("2_h6o8o")
 
-[node name="DeckButton" type="Button" parent="CanvasLayer/Shop/DeckContainer"]
+[node name="DeckButton" type="Button" parent="CanvasLayer/Menu/DeckContainer"]
 layout_mode = 2
 anchor_top = 0.425
 anchor_right = 0.899
@@ -84,7 +117,7 @@ theme_override_styles/hover = SubResource("StyleBoxTexture_pwqlm")
 theme_override_styles/pressed = SubResource("StyleBoxTexture_eb4a3")
 theme_override_styles/normal = SubResource("StyleBoxTexture_dpvu7")
 
-[node name="DeckTexture" type="TextureRect" parent="CanvasLayer/Shop/DeckContainer"]
+[node name="Deck" type="TextureRect" parent="CanvasLayer/Menu/DeckContainer"]
 material = SubResource("ShaderMaterial_cggu2")
 layout_mode = 2
 anchor_left = 0.263
@@ -98,7 +131,7 @@ offset_bottom = -0.200012
 texture = ExtResource("6_i1sy5")
 script = ExtResource("7_cl8wm")
 
-[node name="ShopCardContainer" type="HBoxContainer" parent="CanvasLayer/Shop"]
+[node name="ShopCardContainer" type="HBoxContainer" parent="CanvasLayer/Menu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_top = 0.428
@@ -107,11 +140,22 @@ anchor_bottom = 0.812
 offset_left = 577.0
 offset_top = 31.76
 offset_right = -99.0801
-offset_bottom = -102.96
+offset_bottom = 32.04
 theme_override_constants/separation = 100
-alignment = 1
 
-[node name="GoldLabel" type="Label" parent="CanvasLayer/Shop"]
+[node name="DisplayCard" parent="CanvasLayer/Menu/ShopCardContainer" instance=ExtResource("10_kyfl3")]
+layout_mode = 2
+
+[node name="DisplayCard2" parent="CanvasLayer/Menu/ShopCardContainer" instance=ExtResource("10_kyfl3")]
+layout_mode = 2
+
+[node name="DisplayCard3" parent="CanvasLayer/Menu/ShopCardContainer" instance=ExtResource("10_kyfl3")]
+layout_mode = 2
+
+[node name="DisplayCard4" parent="CanvasLayer/Menu/ShopCardContainer" instance=ExtResource("10_kyfl3")]
+layout_mode = 2
+
+[node name="GoldLabel" type="Label" parent="CanvasLayer/Menu"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.367
@@ -124,12 +168,13 @@ offset_right = 6.07996
 offset_bottom = 2.59999
 theme_override_colors/font_color = Color(0.768627, 0.705882, 0.454902, 1)
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 8
+theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("11_d8n7i")
 theme_override_font_sizes/font_size = 72
 text = "500"
 
 [node name="DeckShow" type="Control" parent="CanvasLayer"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -142,85 +187,31 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 100.0
+offset_top = 50.0
+offset_right = -100.0
+offset_bottom = -50.0
 grow_horizontal = 2
 grow_vertical = 2
-
-[node name="Modal" type="NinePatchRect" parent="CanvasLayer/DeckShow/Panel"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("12_d4q3d")
-
-[node name="Deck" type="GridContainer" parent="CanvasLayer/DeckShow/Panel/Modal"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.161
-anchor_top = 0.158
-anchor_right = 0.83
-anchor_bottom = 0.418
-offset_left = 0.879974
-offset_top = 0.359985
-offset_right = 0.399902
-offset_bottom = -0.440002
-theme_override_constants/h_separation = 40
-columns = 5
-
-[node name="Slot" parent="CanvasLayer/DeckShow/Panel/Modal/Deck" instance=ExtResource("13_wockh")]
-layout_mode = 2
-
-[node name="Slot2" parent="CanvasLayer/DeckShow/Panel/Modal/Deck" instance=ExtResource("13_wockh")]
-layout_mode = 2
-
-[node name="Slot3" parent="CanvasLayer/DeckShow/Panel/Modal/Deck" instance=ExtResource("13_wockh")]
-layout_mode = 2
-
-[node name="Slot4" parent="CanvasLayer/DeckShow/Panel/Modal/Deck" instance=ExtResource("13_wockh")]
-layout_mode = 2
-
-[node name="Slot5" parent="CanvasLayer/DeckShow/Panel/Modal/Deck" instance=ExtResource("13_wockh")]
-layout_mode = 2
-
-[node name="Inventory" type="GridContainer" parent="CanvasLayer/DeckShow/Panel/Modal"]
-layout_mode = 0
-offset_left = 311.0
-offset_top = 644.0
-offset_right = 1591.0
-offset_bottom = 924.0
-theme_override_constants/h_separation = 40
-columns = 5
-script = ExtResource("14_oet43")
-
-[node name="Slot" parent="CanvasLayer/DeckShow/Panel/Modal/Inventory" instance=ExtResource("13_wockh")]
-layout_mode = 2
-
-[node name="Slot2" parent="CanvasLayer/DeckShow/Panel/Modal/Inventory" instance=ExtResource("13_wockh")]
-layout_mode = 2
-
-[node name="Slot3" parent="CanvasLayer/DeckShow/Panel/Modal/Inventory" instance=ExtResource("13_wockh")]
-layout_mode = 2
-
-[node name="Slot4" parent="CanvasLayer/DeckShow/Panel/Modal/Inventory" instance=ExtResource("13_wockh")]
-layout_mode = 2
-
-[node name="Slot5" parent="CanvasLayer/DeckShow/Panel/Modal/Inventory" instance=ExtResource("13_wockh")]
-layout_mode = 2
 
 [node name="Close" type="Button" parent="CanvasLayer/DeckShow/Panel"]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -98.0
+offset_left = -48.0
 offset_bottom = 107.0
 grow_horizontal = 0
 theme_override_font_sizes/font_size = 72
 text = "x"
 
-[connection signal="mouse_entered" from="CanvasLayer/Shop/DeckContainer/DeckButton" to="." method="on_deck_button_hovered"]
-[connection signal="mouse_entered" from="CanvasLayer/Shop/DeckContainer/DeckButton" to="CanvasLayer/Shop/DeckContainer/DeckTexture" method="on_mouse_entered_deck_button"]
-[connection signal="mouse_exited" from="CanvasLayer/Shop/DeckContainer/DeckButton" to="CanvasLayer/Shop/DeckContainer/DeckTexture" method="on_mouse_exited_deck_button"]
-[connection signal="pressed" from="CanvasLayer/Shop/DeckContainer/DeckButton" to="." method="on_deck_button_clicked"]
+[node name="Transition" type="AnimationPlayer" parent="CanvasLayer/DeckShow"]
+libraries = {
+"": SubResource("AnimationLibrary_v1olt")
+}
+
+[connection signal="mouse_entered" from="CanvasLayer/Menu/DeckContainer/DeckButton" to="." method="on_deck_button_hovered"]
+[connection signal="mouse_entered" from="CanvasLayer/Menu/DeckContainer/DeckButton" to="CanvasLayer/Menu/DeckContainer/Deck" method="on_mouse_entered_deck_button"]
+[connection signal="mouse_exited" from="CanvasLayer/Menu/DeckContainer/DeckButton" to="CanvasLayer/Menu/DeckContainer/Deck" method="on_mouse_exited_deck_button"]
+[connection signal="pressed" from="CanvasLayer/Menu/DeckContainer/DeckButton" to="." method="on_deck_button_clicked"]
 [connection signal="pressed" from="CanvasLayer/DeckShow/Panel/Close" to="." method="close_deck"]

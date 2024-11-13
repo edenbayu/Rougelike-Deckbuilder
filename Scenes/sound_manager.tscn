@@ -1,0 +1,26 @@
+[gd_scene load_steps=6 format=3 uid="uid://c72ylrett2rsj"]
+
+[ext_resource type="Script" path="res://Scripts/SoundManager.gd" id="1_jy0nf"]
+[ext_resource type="AudioStream" uid="uid://btpvs74hgfa3d" path="res://Assets/Sounds/mouse-click-117076 (mp3cut.net).mp3" id="2_j0ycr"]
+[ext_resource type="AudioStream" uid="uid://diesvsfk1f3vb" path="res://Assets/Sounds/button-press-40018 (mp3cut.net).mp3" id="3_3q3fu"]
+[ext_resource type="AudioStream" uid="uid://d13yibvh5jaqw" path="res://Assets/Sounds/Hello Lofi.mp3" id="4_2sd7g"]
+[ext_resource type="AudioStream" uid="uid://cewe7gpeur6fe" path="res://Assets/Sounds/cardsound32562-37691.mp3" id="5_4cagg"]
+
+[node name="SoundManager" type="Node2D"]
+script = ExtResource("1_jy0nf")
+
+[node name="hover" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_j0ycr")
+bus = &"SFX"
+
+[node name="click" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_3q3fu")
+bus = &"SFX"
+
+[node name="bgm" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_2sd7g")
+bus = &"Music"
+
+[node name="hover_card" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_4cagg")
+bus = &"SFX"

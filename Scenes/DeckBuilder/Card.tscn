@@ -1,6 +1,6 @@
 [gd_scene load_steps=8 format=3 uid="uid://1robv1kpf2r3"]
 
-[ext_resource type="Script" path="res://Card.gd" id="1_856f6"]
+[ext_resource type="Script" path="res://Scripts/Card.gd" id="1_856f6"]
 [ext_resource type="Shader" path="res://Assets/Shaders/fake3D.gdshader" id="2_lv3v1"]
 [ext_resource type="Texture2D" uid="uid://cokvfdcw20mcy" path="res://Assets/Cards/nimbu.png" id="3_0o3fc"]
 [ext_resource type="Texture2D" uid="uid://btxf1wt650qgg" path="res://Assets/Cards/back.png" id="4_wuvx1"]
@@ -30,10 +30,8 @@ custom_minimum_size = Vector2(224, 280)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 433.0
-offset_top = 200.0
-offset_right = -495.0
-offset_bottom = -168.0
+offset_right = -1696.0
+offset_bottom = -800.0
 grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(112, 140)
@@ -44,8 +42,8 @@ script = ExtResource("1_856f6")
 [node name="FrontTexture" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_uq80p")
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 224.0
+offset_bottom = 280.0
 texture = ExtResource("3_0o3fc")
 
 [node name="BackTexture" type="TextureRect" parent="."]

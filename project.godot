@@ -15,7 +15,17 @@ run/main_scene="res://Scenes/DeckBuilder/Card.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="res://Assets/Sounds/default_bus_layout.tres"
+
+[autoload]
+
+GameData="*res://Scripts/Globals/GameData.gd"
+Warning="*res://Scripts/Globals/Warning.gd"
+
 [display]
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
+window/stretch/mode="canvas_items"

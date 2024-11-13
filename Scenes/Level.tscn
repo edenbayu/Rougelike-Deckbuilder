@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://vustj61aeu1r"]
 
-[ext_resource type="Script" path="res://Hands.gd" id="1_751e4"]
+[ext_resource type="Script" path="res://Scripts/Hands.gd" id="1_751e4"]
 [ext_resource type="PackedScene" uid="uid://7m42e7heply2" path="res://Scenes/DeckBuilder/Deck.tscn" id="2_wjnaa"]
 
 [node name="Level" type="Node2D"]

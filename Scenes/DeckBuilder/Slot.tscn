@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c2gkgubf6jijx"]
+
+[ext_resource type="Texture2D" uid="uid://cr1xwnmwvhgri" path="res://Assets/UI_Elements/slot.png" id="1_053fi"]
+[ext_resource type="Script" path="res://Scenes/DeckBuilder/Slot.gd" id="1_l46mo"]
+
+[node name="Slot" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(224, 280)
+offset_right = 224.0
+offset_bottom = 280.0
+script = ExtResource("1_l46mo")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(224, 280)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_053fi")

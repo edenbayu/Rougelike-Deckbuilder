@@ -54,10 +54,10 @@ func _ready():
 func _process(delta):
 	pass
 
-func _on_gui_input(event: InputEvent) -> void:
-	if not disabled:
-		self.z_index = 2
-		handle_mouse_click(event)
+#func _on_gui_input(event: InputEvent) -> void:
+	#if not disabled:
+		#self.z_index = 2
+		#handle_mouse_click(event)
 	 #Handles rotation
 	 #Get local mouse pos
 	#var mouse_pos: Vector2 = get_local_mouse_position()

@@ -1,4 +1,5 @@
 {
+	"gold" : 10000,
 	"cards" : [
 		{
 			"id" : 1,
@@ -27,6 +28,29 @@
 			"ability" : "ATTACK",
 			"name" : "sandwich",
 			"texture" : ""
+		}
+	],
+	"shop_cards" : [
+		{
+			"id" : 1,
+			"name" : "pistol",
+			"description" : "Lorem Ipsum Doloret",
+			"texture" : "res://Assets/Cards/nimbu.png",
+			"price" : 500,
+		},
+		{
+			"id" : 2,
+			"name" : "sniper",
+			"description" : "Lorem Ipsum Doloret",
+			"texture" : "res://Assets/Cards/sniper_rare.png",
+			"price" : 4000,
+		},
+		{
+			"id" : 3,
+			"name" : "katana",
+			"description" : "Lorem Ipsum Doloret",
+			"texture" : "res://Assets/Cards/katana_rare.png",
+			"price" : 2500
 		}
 	]
 }
