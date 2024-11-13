@@ -6,6 +6,7 @@ var sound_manager = preload("res://Scenes/sound_manager.tscn")
 @onready var deck_button = $CanvasLayer/Shop/DeckContainer/DeckButton
 @onready var gold  = $CanvasLayer/Shop/GoldLabel
 @onready var shop_cards : ShopCard = $CanvasLayer/Shop
+@onready var inventory : Inventory = $CanvasLayer/DeckShow/Panel/Modal/Inventory
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -42,6 +43,7 @@ func on_deck_button_hovered():
 func on_deck_button_clicked():
 	deck_button.disabled = true
 	sound_manager.click_button_sound()
+	inventory.get_inventory_data()
 	var tween = create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK).set_parallel(true)
 	tween.tween_property(panel, "position", Vector2(panel.position.x, 0), 1)
 
@@ -59,4 +61,6 @@ func on_successful_purchasement(new_gold_amount, status) -> void:
 			gold.text = str(new_gold_amount)
 			Warning.display_warning_text("Successful", get_global_mouse_position(),shop_cards)
 		"failed":
-			Warning.display_warning_text("Insufficient amount of gold", get_global_mouse_position(),shop_cards)
+			Warning.display_warning_text("Insufficient amount of gold!", get_global_mouse_position(),shop_cards)
+		"full_slot":
+			Warning.display_warning_text("Inventory is full!", get_global_mouse_position(),shop_cards)

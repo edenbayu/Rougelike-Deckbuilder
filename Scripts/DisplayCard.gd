@@ -100,8 +100,11 @@ func _on_buy_button_hovered() -> void:
 func _on_buy_button_clicked() -> void:
 	clicked.emit()
 	var card_price = int(self.price)
-	#Check if gold is sufficient to buy the cards
-	if GameData.datas.gold >= card_price:
+	#Check if gold is sufficient to buy the cards and if the inventory slot isn't full
+	if GameData.inventory.discarded_cards.size() > 5:
+		var new_amount_gold = GameData.datas.gold
+		purchasementStatus.emit(new_amount_gold, "full_slot")
+	elif GameData.datas.gold >= card_price:
 		GameData.datas.gold -= card_price
 		
 		#Add the card into inventory after purchasment successfully done.
@@ -118,4 +121,3 @@ func _on_buy_button_clicked() -> void:
 	else:
 		var new_amount_gold = GameData.datas.gold
 		purchasementStatus.emit(new_amount_gold, "failed")
-		

@@ -1,5 +1,5 @@
 class_name Slot
-extends Panel
+extends Button
 
 @onready var _texture = $TextureRect
 
@@ -10,11 +10,18 @@ extends Panel
 			await ready
 		_texture.texture = value
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
+var status = false
+var id : int
 
+func _input_event(event):
+	if event is InputEventMouseButton and event.pressed:
+		print("Panel clicked!")
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func _on_mouse_exited() -> void:
+	self.modulate = Color8(255,255,255, 255)
+
+func on_mouse_entered():
+	if status:
+		self.modulate = Color8(165, 165, 165, 255)
+	else:
+		self.modulate = Color8(255,255,255, 255)
