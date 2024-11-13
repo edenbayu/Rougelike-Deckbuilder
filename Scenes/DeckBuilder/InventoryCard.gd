@@ -3,12 +3,17 @@ extends TextureRect
 const empty_texture = "res://Assets/UI_Elements/slot.png"
 
 var filled : bool = false
+signal move
+signal fill
  
 func _get_drag_data(at_position):
+	if filled:
+		set_drag_preview(get_preview())
+		move.emit()
+		
+		return self
  
-	set_drag_preview(get_preview())
- 
-	return self
+	return null
  
 func _can_drop_data(_pos, data):
 	return data is TextureRect
@@ -17,7 +22,7 @@ func _drop_data(_pos, data):
 	var temp = self.texture
 	self.texture = data.texture
 	data.texture = temp
-	filled = true
+	fill.emit()
  
 func get_preview():
 	var preview_texture = TextureRect.new()

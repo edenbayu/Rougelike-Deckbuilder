@@ -5,21 +5,21 @@ var datas = {
 	"gold" = clamp(10000, 0, 999999),
 	"shop_cards" = [
 		{
-			"id" : 1,
+			"id" : 0,
 			"name" : "pistol",
 			"description" : "Lorem Ipsum Doloret",
 			"texture" : "res://Assets/Cards/nimbu.png",
 			"price" : 500,
 		},
 		{
-			"id" : 2,
+			"id" : 1,
 			"name" : "sniper",
 			"description" : "Lorem Ipsum Doloret",
 			"texture" : "res://Assets/Cards/sniper_rare.png",
 			"price" : 4000,
 		},
 		{
-			"id" : 3,
+			"id" : 2,
 			"name" : "katana",
 			"description" : "Lorem Ipsum Doloret",
 			"texture" : "res://Assets/Cards/katana_rare.png",
@@ -30,6 +30,8 @@ var datas = {
 
 var inventory = {
 	"discarded_cards" = [
+	],
+	"active cards" = [
 	]
 }
 func load_gold_data() -> int:
@@ -66,14 +68,3 @@ func save_data(new_gold_amount: int) -> void:
 		print("Gold amount updated successfully!")
 	else:
 		print("Failed to open file for writing.")
-	
-	#for item in json_data:
-		#if item.id == current_saving_id:
-			#item.id_level = new_id_level
-			#item.last_saved_time = get_new_date()
-			#item.level_status = new_level_status
-			#break
-	#file = FileAccess.open(savedata, FileAccess.WRITE)
-	#file.store_line(JSON.stringify(json_data))
-	#file.close
-	#print("data berhasil disimpan! na")

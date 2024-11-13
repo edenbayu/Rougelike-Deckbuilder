@@ -29,6 +29,10 @@ func _ready():
 			card.connect("clicked", on_card_display_clicked)
 			card.connect("purchasementStatus", on_successful_purchasement)
 
+func _process(delta: float) -> void:
+	var new_amount = GameData.datas.gold
+	gold.text = str(new_amount)
+
 ##UI Interaction codes##
 
 func on_card_display_hovered():
@@ -55,10 +59,9 @@ func close_deck():
 ## End of User Interface signals code##
 
 ## Handle Purchasment signal##
-func on_successful_purchasement(new_gold_amount, status) -> void:
+func on_successful_purchasement(status) -> void:
 	match status:
 		"success":
-			gold.text = str(new_gold_amount)
 			Warning.display_warning_text("Successful", get_global_mouse_position(),shop_cards)
 		"failed":
 			Warning.display_warning_text("Insufficient amount of gold!", get_global_mouse_position(),shop_cards)
