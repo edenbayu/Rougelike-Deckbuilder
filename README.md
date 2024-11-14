@@ -20,19 +20,19 @@ In the initial interface, the user is introduced to the *Card Shop* screen, wher
 
    To get more information about each card, such as its abilities, features, or description, the user can hover their mouse over the card. This action reveals additional details, allowing the user to make informed decisions on which cards to purchase based on their gameplay strategy. Each card has unique attributes, and the hover feature provides a quick glimpse into these attributes without leaving the main shop screen.
 
-4. **Purchase Success or Failure Feedback**
+3. **Purchase Success or Failure Feedback**
 
 ![WhatsApp Image 2024-11-14 at 22 02 21_ac2ff404](https://github.com/user-attachments/assets/dda2d9cc-73c4-408e-8eb5-898fc56af634)
 
    When a user attempts to purchase a card, a notification message appears to indicate whether the purchase was successful or unsuccessful. This feedback helps users keep track of their purchases and provides confirmation that the transaction was processed. If the purchase fails, it might be due to insufficient funds, and the user will be alerted accordingly to avoid confusion.
 
-6. **Storing Cards in Inventory**
+4. **Storing Cards in Inventory**
 
 ![WhatsApp Image 2024-11-14 at 22 03 27_b2037f60](https://github.com/user-attachments/assets/5d4c9695-45dd-4f65-8337-f35978b1f96f)
 
    After purchasing, the card is stored in the user's *inventory*, located within the *deck* section. This is the area where all acquired cards are initially placed before they are activated. Users can organize their cards here and, if needed, sell them by right-clicking on the card and selecting the *sell* option. This feature provides flexibility for users to manage their card collection and make adjustments based on their current needs or game strategy.
 
-7. **Activating and Organizing Cards in the Deck**
+5. **Activating and Organizing Cards in the Deck**
 
 ![WhatsApp Image 2024-11-14 at 22 07 39_98011505](https://github.com/user-attachments/assets/83007e33-1174-4ee5-af27-cbdd0fa7e13e)
 
