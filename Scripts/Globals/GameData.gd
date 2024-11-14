@@ -5,21 +5,21 @@ var datas = {
 	"gold" = clamp(10000, 0, 999999),
 	"shop_cards" = [
 		{
-			"id" : 0,
+			"id" : 1,
 			"name" : "pistol",
 			"description" : "Lorem Ipsum Doloret",
 			"texture" : "res://Assets/Cards/nimbu.png",
 			"price" : 500,
 		},
 		{
-			"id" : 1,
+			"id" : 2,
 			"name" : "sniper",
 			"description" : "Lorem Ipsum Doloret",
 			"texture" : "res://Assets/Cards/sniper_rare.png",
 			"price" : 4000,
 		},
 		{
-			"id" : 2,
+			"id" : 3,
 			"name" : "katana",
 			"description" : "Lorem Ipsum Doloret",
 			"texture" : "res://Assets/Cards/katana_rare.png",

@@ -169,40 +169,24 @@ theme_override_constants/h_separation = 40
 columns = 5
 
 [node name="Slot" parent="CanvasLayer/DeckShow/Panel/Modal/Deck" instance=ExtResource("13_wockh")]
+visible = false
 layout_mode = 2
-slot_type = "Deck"
 
 [node name="Slot2" parent="CanvasLayer/DeckShow/Panel/Modal/Deck" instance=ExtResource("13_wockh")]
+visible = false
 layout_mode = 2
-<<<<<<< HEAD
-slot_type = "Deck"
-=======
->>>>>>> 6a115a3 (modified drag and drop system)
-id = 1
 
 [node name="Slot3" parent="CanvasLayer/DeckShow/Panel/Modal/Deck" instance=ExtResource("13_wockh")]
+visible = false
 layout_mode = 2
-<<<<<<< HEAD
-slot_type = "Deck"
-=======
->>>>>>> 6a115a3 (modified drag and drop system)
-id = 2
 
 [node name="Slot4" parent="CanvasLayer/DeckShow/Panel/Modal/Deck" instance=ExtResource("13_wockh")]
+visible = false
 layout_mode = 2
-<<<<<<< HEAD
-slot_type = "Deck"
-=======
->>>>>>> 6a115a3 (modified drag and drop system)
-id = 3
 
 [node name="Slot5" parent="CanvasLayer/DeckShow/Panel/Modal/Deck" instance=ExtResource("13_wockh")]
+visible = false
 layout_mode = 2
-<<<<<<< HEAD
-slot_type = "Deck"
-=======
->>>>>>> 6a115a3 (modified drag and drop system)
-id = 4
 
 [node name="Inventory" type="GridContainer" parent="CanvasLayer/DeckShow/Panel/Modal"]
 layout_mode = 0
@@ -215,47 +199,27 @@ columns = 5
 script = ExtResource("14_oet43")
 
 [node name="Slot" parent="CanvasLayer/DeckShow/Panel/Modal/Inventory" instance=ExtResource("13_wockh")]
+visible = false
 layout_mode = 2
-<<<<<<< HEAD
-slot_type = "Inventory"
 
 [node name="Slot2" parent="CanvasLayer/DeckShow/Panel/Modal/Inventory" instance=ExtResource("13_wockh")]
+visible = false
 layout_mode = 2
-slot_type = "Inventory"
-=======
-card_type = "Inventory"
-
-[node name="Slot2" parent="CanvasLayer/DeckShow/Panel/Modal/Inventory" instance=ExtResource("13_wockh")]
-layout_mode = 2
-card_type = "Inventory"
->>>>>>> 6a115a3 (modified drag and drop system)
 id = 1
 
 [node name="Slot3" parent="CanvasLayer/DeckShow/Panel/Modal/Inventory" instance=ExtResource("13_wockh")]
+visible = false
 layout_mode = 2
-<<<<<<< HEAD
-slot_type = "Inventory"
-=======
-card_type = "Inventory"
->>>>>>> 6a115a3 (modified drag and drop system)
 id = 2
 
 [node name="Slot4" parent="CanvasLayer/DeckShow/Panel/Modal/Inventory" instance=ExtResource("13_wockh")]
+visible = false
 layout_mode = 2
-<<<<<<< HEAD
-slot_type = "Inventory"
-=======
-card_type = "Inventory"
->>>>>>> 6a115a3 (modified drag and drop system)
 id = 3
 
 [node name="Slot5" parent="CanvasLayer/DeckShow/Panel/Modal/Inventory" instance=ExtResource("13_wockh")]
+visible = false
 layout_mode = 2
-<<<<<<< HEAD
-slot_type = "Inventory"
-=======
-card_type = "Inventory"
->>>>>>> 6a115a3 (modified drag and drop system)
 id = 4
 
 [node name="Close" type="Button" parent="CanvasLayer/DeckShow/Panel"]
