@@ -1,31 +1,8 @@
 class_name DisplayCard
-extends Button
+extends Card
 
 @export var angle_x_max: float = 15.0
 @export var angle_y_max: float = 15.0
-
-@export var id : int
-@export var card_name : String
-@export var card_texture : Texture2D:
-	set(value):
-		card_texture = value
-		if not _texture:
-			await ready
-		_texture.texture = value
-
-@export var price : String:
-	set(value):
-		price = value
-		if not _label:
-			await ready
-		_label.text = value
-
-@export var card_description : String:
-	set(value):
-		card_description = value
-		if not _description:
-			await ready
-		_description.text = value
 
 var tween_rot: Tween
 var tween_hover: Tween
@@ -37,18 +14,13 @@ signal hovered
 signal clicked
 signal purchasementStatus(new_gold_amount, status)
 signal purchasementFailed
-
-@onready var _texture := $CardTexture
-@onready var _description := $Description/DescriptionText
-@onready var _label := $Buy/Label
+signal spawn_card(card_data: Dictionary, index: int)
 
 func _ready():
 	angle_x_max = deg_to_rad(angle_x_max)
 	angle_y_max = deg_to_rad(angle_y_max)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
 
 ##Handle card's hovering effects##
 func _on_gui_input(event: InputEvent) -> void:
@@ -119,7 +91,9 @@ func _on_buy_button_clicked() -> void:
 		for i in range(GameData.inventory.discarded_cards.size()):
 			if gamedata[i].status == 0:
 				gamedata[i] = card_data
+				spawn_card.emit(card_data, i)
 				break
+
 		purchasementStatus.emit("success")
 	else:
 		purchasementStatus.emit("failed")

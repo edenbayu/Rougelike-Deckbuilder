@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://14vvqgsfw0ox" path="res://Assets/UI_Elements/buy_button.png" id="4_x1hrt"]
 [ext_resource type="FontFile" uid="uid://bp8k0t32rtbfy" path="res://Assets/Fonts/I-pixel-u.ttf" id="6_3tgd1"]
 
-[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_naymv"]
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jt4ud"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_00w62"]
 resource_local_to_scene = true
@@ -27,7 +27,7 @@ texture = ExtResource("4_huw0p")
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_2p3yj"]
 texture = ExtResource("4_x1hrt")
 
-[node name="DisplayCard" type="Button"]
+[node name="DisplayCard" type="Button" node_paths=PackedStringArray("_texture", "_label", "_description")]
 custom_minimum_size = Vector2(224, 280)
 anchors_preset = 15
 anchor_right = 1.0
@@ -36,9 +36,12 @@ offset_right = -1696.0
 offset_bottom = -800.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/focus = SubResource("StyleBoxEmpty_naymv")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_jt4ud")
 flat = true
 script = ExtResource("1_jivfa")
+_texture = NodePath("CardTexture")
+_label = NodePath("Buy/Label")
+_description = NodePath("Description/DescriptionText")
 
 [node name="CardTexture" type="TextureRect" parent="."]
 material = SubResource("ShaderMaterial_00w62")
@@ -50,13 +53,15 @@ texture = ExtResource("2_liha4")
 [node name="Description" type="MarginContainer" parent="."]
 visible = false
 layout_mode = 0
-offset_top = -72.0
-offset_right = 40.0
-offset_bottom = -32.0
+offset_left = -36.0
+offset_top = -80.0
+offset_right = 273.0
+offset_bottom = -40.0
 
 [node name="DescriptionText" type="RichTextLabel" parent="Description"]
-visible = false
 layout_mode = 2
+theme_override_font_sizes/normal_font_size = 25
+text = "LOREM IPSUM DOLORET "
 
 [node name="Buy" type="Button" parent="."]
 custom_minimum_size = Vector2(190, 66)

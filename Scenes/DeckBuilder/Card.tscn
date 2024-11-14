@@ -1,0 +1,68 @@
+[gd_scene load_steps=5 format=3 uid="uid://by013uyqrk6r5"]
+
+[ext_resource type="Script" path="res://Scenes/DeckBuilder/InventoryCard.gd" id="1_pe71x"]
+[ext_resource type="Texture2D" uid="uid://df42pbpkxbi" path="res://Assets/Cards/katana_rare.png" id="2_ehmkt"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_xsmur"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etm2q"]
+size = Vector2(224, 280)
+
+[node name="Card" type="Button" node_paths=PackedStringArray("_texture", "_label", "_description")]
+custom_minimum_size = Vector2(224, 280)
+offset_right = 224.0
+offset_bottom = 280.0
+theme_override_styles/focus = SubResource("StyleBoxEmpty_xsmur")
+flat = true
+script = ExtResource("1_pe71x")
+_texture = NodePath("CardTexture")
+_label = NodePath("Label")
+_description = NodePath("description")
+
+[node name="description" type="RichTextLabel" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CardTexture" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_ehmkt")
+
+[node name="Label" type="Label" parent="."]
+visible = false
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="Sell" type="Button" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -45.0
+offset_top = -15.5
+offset_right = 45.0
+offset_bottom = 15.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 30
+text = "SELL CARD"
+
+[node name="StaticBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(112, 140)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_etm2q")
+
+[connection signal="button_down" from="." to="." method="_on_button_down"]
+[connection signal="button_up" from="." to="." method="_on_button_up"]
+[connection signal="gui_input" from="." to="." method="_on_Button_gui_input"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]
+[connection signal="pressed" from="Sell" to="." method="_on_sell_pressed"]

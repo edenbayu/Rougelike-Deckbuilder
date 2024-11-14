@@ -7,6 +7,7 @@ var sound_manager = preload("res://Scenes/sound_manager.tscn")
 @onready var gold  = $CanvasLayer/Shop/GoldLabel
 @onready var shop_cards : ShopCard = $CanvasLayer/Shop
 @onready var inventory : Inventory = $CanvasLayer/DeckShow/Panel/Modal/Inventory
+@onready var modal = $CanvasLayer/DeckShow/Panel/Modal
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -28,13 +29,13 @@ func _ready():
 			card.connect("hovered", on_card_display_hovered)
 			card.connect("clicked", on_card_display_clicked)
 			card.connect("purchasementStatus", on_successful_purchasement)
+			card.connect("spawn_card", spawn_card)
 
 func _process(delta: float) -> void:
 	var new_amount = GameData.datas.gold
 	gold.text = str(new_amount)
 
 ##UI Interaction codes##
-
 func on_card_display_hovered():
 	sound_manager.hover_card_sound()
 
@@ -47,7 +48,7 @@ func on_deck_button_hovered():
 func on_deck_button_clicked():
 	deck_button.disabled = true
 	sound_manager.click_button_sound()
-	inventory.get_inventory_data()
+	#inventory.get_inventory_data()
 	var tween = create_tween().set_ease(Tween.EASE_IN).set_trans(Tween.TRANS_BACK).set_parallel(true)
 	tween.tween_property(panel, "position", Vector2(panel.position.x, 0), 1)
 
@@ -67,3 +68,19 @@ func on_successful_purchasement(status) -> void:
 			Warning.display_warning_text("Insufficient amount of gold!", get_global_mouse_position(),shop_cards)
 		"full_slot":
 			Warning.display_warning_text("Inventory is full!", get_global_mouse_position(),shop_cards)
+
+func spawn_card(data, index):
+	#Spawnning new card on purchasement
+	var card = load("res://Scenes/DeckBuilder/Card.tscn")
+	card = card.instantiate()
+	card.id = data.id
+	card.card_name = data.name
+	card.card_description = data.description
+	card.card_texture = data.texture
+	card.price = str(data.price)
+	modal.add_child(card)
+	
+	##Adjust spawnned card position 
+	var slot = inventory.get_child(index)
+	slot.filled = true
+	card.global_position = slot.get_global_position()

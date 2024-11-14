@@ -1,35 +1,46 @@
-extends TextureRect
+class_name InventoryCard
+extends Card
 
-var filled : bool = false
-signal move
-signal fill
- 
-func _get_drag_data(at_position):
-	if filled:
-		set_drag_preview(get_preview())
-		move.emit()
-		
-		return self
- 
-	return null
- 
-func _can_drop_data(_pos, data):
-	return data is TextureRect
- 
-func _drop_data(_pos, data):
-	var temp = self.texture
-	self.texture = data.texture
-	data.texture = temp
-	fill.emit(data)
- 
-func get_preview():
-	var preview_texture = TextureRect.new()
- 
-	preview_texture.texture = self.texture
-	preview_texture.expand_mode = 1
-	preview_texture.size = Vector2(112,140)
- 
-	var preview = Control.new()
-	preview.add_child(preview_texture)
- 
-	return preview
+var draggable = false
+var is_inside_dropable = false
+var body_ref
+var offset : Vector2
+
+func _ready() -> void:
+	$Sell.visible = false
+
+func _process(delta: float) -> void:
+	if draggable:
+		position = get_global_mouse_position() - offset
+
+func _on_sell_pressed() -> void:
+	GameData.datas.gold += int(price)
+	sell_card.emit()
+	queue_free()
+
+func _on_Button_gui_input(event: InputEvent):
+	if event is InputEventMouseButton and event.pressed:
+		match event.button_index:
+			MOUSE_BUTTON_LEFT:
+				pass
+			MOUSE_BUTTON_RIGHT:
+				if $Sell.visible:
+					$Sell.visible = false
+				else:
+					$Sell.visible = true
+
+func _on_button_down() -> void:
+	draggable = true
+	offset = get_global_mouse_position() - global_position
+
+func _on_button_up() -> void:
+	draggable = false
+	var tween = get_tree().create_tween()
+	if is_inside_dropable:
+		tween.tween_property(self, "position", body_ref.get_global_position(), 0.2).set_ease(Tween.EASE_OUT)
+
+func _on_mouse_entered() -> void:
+	self.modulate = Color8(165, 165, 165, 255)
+
+func _on_mouse_exited() -> void:
+	self.modulate = Color8(255, 255, 255, 255)

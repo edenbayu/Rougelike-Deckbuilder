@@ -14,4 +14,4 @@ func get_inventory_data():
 			slots[i].card_texture = card_datas[i].texture
 			slots[i].price = int(card_datas[i].price)
 			slots[i].status = card_datas[i].status
-	print(card_datas)
+	#print(card_datas)
