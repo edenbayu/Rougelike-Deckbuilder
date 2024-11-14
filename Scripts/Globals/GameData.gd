@@ -30,8 +30,88 @@ var datas = {
 
 var inventory = {
 	"discarded_cards" = [
+		{
+			"id" : 0,
+			"name" : "",
+			"description" : "",
+			"texture" : load("res://Assets/UI_Elements/slot.png"),
+			"price" : 0,
+			"status" : 0
+		},
+		{
+			"id" : 1,
+			"name" : "",
+			"description" : "",
+			"texture" : load("res://Assets/UI_Elements/slot.png"),
+			"price" : 0,
+			"status" : 0
+		},
+		{
+			"id" : 2,
+			"name" : "",
+			"description" : "",
+			"texture" : load("res://Assets/UI_Elements/slot.png"),
+			"price" : 0,
+			"status" : 0
+		},
+				{
+			"id" : 3,
+			"name" : "",
+			"description" : "",
+			"texture" : load("res://Assets/UI_Elements/slot.png"),
+			"price" : 0,
+			"status" : 0
+		},
+		{
+			"id" : 4,
+			"name" : "",
+			"description" : "",
+			"texture" : load("res://Assets/UI_Elements/slot.png"),
+			"price" : 0,
+			"status" : 0
+		},
 	],
-	"active cards" = [
+	"active_cards" = [
+		{
+			"id" : 0,
+			"name" : "",
+			"description" : "",
+			"texture" : load("res://Assets/UI_Elements/slot.png"),
+			"price" : 0,
+			"status" : 0
+		},
+		{
+			"id" : 1,
+			"name" : "",
+			"description" : "",
+			"texture" : load("res://Assets/UI_Elements/slot.png"),
+			"price" : 0,
+			"status" : 0
+		},
+		{
+			"id" : 2,
+			"name" : "",
+			"description" : "",
+			"texture" : load("res://Assets/UI_Elements/slot.png"),
+			"price" : 0,
+			"status" : 0
+		},
+				{
+			"id" : 3,
+			"name" : "",
+			"description" : "",
+			"texture" : load("res://Assets/UI_Elements/slot.png"),
+			"price" : 0,
+			"status" : 0
+		},
+		{
+			"id" : 4,
+			"name" : "",
+			"description" : "",
+			"texture" : load("res://Assets/UI_Elements/slot.png"),
+			"price" : 0,
+			"status" : 0
+		},
 	]
 }
 func load_gold_data() -> int:

@@ -112,9 +112,14 @@ func _on_buy_button_clicked() -> void:
 			"name" : self.card_name,
 			"description" : self.card_description,
 			"texture" : self.card_texture,
-			"price" : int(self.price)/2
+			"price" : int(self.price)/2,
+			"status" : 1
 		}
-		GameData.inventory.discarded_cards.append(self)
+		var gamedata = GameData.inventory.discarded_cards
+		for i in range(GameData.inventory.discarded_cards.size()):
+			if gamedata[i].status == 0:
+				gamedata[i] = card_data
+				break
 		purchasementStatus.emit("success")
 	else:
 		purchasementStatus.emit("failed")

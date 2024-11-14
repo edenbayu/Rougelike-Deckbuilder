@@ -1,7 +1,5 @@
 extends TextureRect
 
-const empty_texture = "res://Assets/UI_Elements/slot.png"
-
 var filled : bool = false
 signal move
 signal fill
@@ -22,7 +20,7 @@ func _drop_data(_pos, data):
 	var temp = self.texture
 	self.texture = data.texture
 	data.texture = temp
-	fill.emit()
+	fill.emit(data)
  
 func get_preview():
 	var preview_texture = TextureRect.new()

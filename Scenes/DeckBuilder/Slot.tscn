@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c2gkgubf6jijx"]
+[gd_scene load_steps=3 format=3 uid="uid://c2gkgubf6jijx"]
 
 [ext_resource type="Texture2D" uid="uid://cr1xwnmwvhgri" path="res://Assets/UI_Elements/slot.png" id="1_053fi"]
 [ext_resource type="Script" path="res://Scenes/DeckBuilder/Slot.gd" id="1_l46mo"]
-[ext_resource type="Script" path="res://Scenes/DeckBuilder/InventoryCard.gd" id="3_se0li"]
 
 [node name="Slot" type="Button"]
 self_modulate = Color(1, 1, 1, 0)
@@ -17,7 +16,6 @@ layout_mode = 0
 offset_right = 224.0
 offset_bottom = 280.0
 texture = ExtResource("1_053fi")
-script = ExtResource("3_se0li")
 
 [connection signal="mouse_entered" from="." to="." method="on_mouse_entered"]
 [connection signal="mouse_exited" from="." to="." method="_on_mouse_exited"]

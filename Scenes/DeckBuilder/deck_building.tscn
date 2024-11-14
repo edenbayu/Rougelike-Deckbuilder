@@ -170,18 +170,27 @@ columns = 5
 
 [node name="Slot" parent="CanvasLayer/DeckShow/Panel/Modal/Deck" instance=ExtResource("13_wockh")]
 layout_mode = 2
+slot_type = "Deck"
 
 [node name="Slot2" parent="CanvasLayer/DeckShow/Panel/Modal/Deck" instance=ExtResource("13_wockh")]
 layout_mode = 2
+slot_type = "Deck"
+id = 1
 
 [node name="Slot3" parent="CanvasLayer/DeckShow/Panel/Modal/Deck" instance=ExtResource("13_wockh")]
 layout_mode = 2
+slot_type = "Deck"
+id = 2
 
 [node name="Slot4" parent="CanvasLayer/DeckShow/Panel/Modal/Deck" instance=ExtResource("13_wockh")]
 layout_mode = 2
+slot_type = "Deck"
+id = 3
 
 [node name="Slot5" parent="CanvasLayer/DeckShow/Panel/Modal/Deck" instance=ExtResource("13_wockh")]
 layout_mode = 2
+slot_type = "Deck"
+id = 4
 
 [node name="Inventory" type="GridContainer" parent="CanvasLayer/DeckShow/Panel/Modal"]
 layout_mode = 0
@@ -195,21 +204,26 @@ script = ExtResource("14_oet43")
 
 [node name="Slot" parent="CanvasLayer/DeckShow/Panel/Modal/Inventory" instance=ExtResource("13_wockh")]
 layout_mode = 2
+slot_type = "Inventory"
 
 [node name="Slot2" parent="CanvasLayer/DeckShow/Panel/Modal/Inventory" instance=ExtResource("13_wockh")]
 layout_mode = 2
+slot_type = "Inventory"
 id = 1
 
 [node name="Slot3" parent="CanvasLayer/DeckShow/Panel/Modal/Inventory" instance=ExtResource("13_wockh")]
 layout_mode = 2
+slot_type = "Inventory"
 id = 2
 
 [node name="Slot4" parent="CanvasLayer/DeckShow/Panel/Modal/Inventory" instance=ExtResource("13_wockh")]
 layout_mode = 2
+slot_type = "Inventory"
 id = 3
 
 [node name="Slot5" parent="CanvasLayer/DeckShow/Panel/Modal/Inventory" instance=ExtResource("13_wockh")]
 layout_mode = 2
+slot_type = "Inventory"
 id = 4
 
 [node name="Close" type="Button" parent="CanvasLayer/DeckShow/Panel"]
