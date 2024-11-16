@@ -38,5 +38,9 @@ In the initial interface, the user is introduced to the *Card Shop* screen, wher
 
    To activate a card for gameplay, users can drag the desired card from the *inventory* section into the *deck* section. This action adds the card to their active deck, making it available for use in the game. If the user wishes to hide the contents of their *deck* and *inventory*, they can close the interface by clicking the button located in the upper right corner. This organization feature allows users to customize their deck efficiently and maintain a clutter-free interface.
 
+6. **Selling Cards**
+![WhatsApp Image 2024-11-14 at 22 03 43_7e39e96f](https://github.com/user-attachments/assets/b44ebb12-166a-4f2e-b193-9bf94b90fd28)
+   Selling card can be done by right-clicking the card. selling the cards will give player gold for half the amount of the card's price.
+
 ## Conclusion
 This concludes the prototype of the "Initial Interface of Deck System." This prototype illustrates the core interactions involved in buying, viewing, and managing cards within the game. It provides a foundation for users to build their card collections and strategically organize their decks.
